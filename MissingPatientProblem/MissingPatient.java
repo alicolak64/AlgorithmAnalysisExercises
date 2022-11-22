@@ -85,12 +85,8 @@ public class MissingPatient {
     // return the missing patient's number
     public static int getMissingPatient(int[] arr, int low, int high) {
 
-        if (low >= high) {
-            if ((high - low == 0) || (arr[low] == arr.length + 1))
-                return arr[low] - 1;
-            else
-                return arr[low] + 1;
-        }
+        if ( low >= high )
+            return arr[low] - 1;
 
         int[] midElement = getMidElement(arr, low, high);
 
