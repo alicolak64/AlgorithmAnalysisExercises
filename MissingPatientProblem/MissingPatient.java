@@ -101,26 +101,26 @@ public class MissingPatient {
     }
 
     // Partition method with pivot value first element and change operation with pivot
-    private static int partition(int[] arr, int low, int high) {
+    private static int partition(int[] array, int low, int high) {
 
-        int pivot = arr[low];
+        int pivot = array[low];
 
         int i = low;
         int j = high;
 
         while (i < j) {
 
-            while (arr[j] >= pivot && i < j)
+            while (array[j] >= pivot && i < j)
                 j--;
 
             if (i < j)
-                swap(arr, i, j);
+                swap(array, i, j);
 
-            while (arr[i] <= pivot && i < j)
+            while (array[i] <= pivot && i < j)
                 i++;
 
             if (i < j)
-                swap(arr, i, j);
+                swap(array, i, j);
 
         }
 
