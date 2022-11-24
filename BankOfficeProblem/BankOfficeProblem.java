@@ -63,12 +63,12 @@ public class BankOfficeProblem {
 
 
     // K is the shift value to the right
-    public static int[] shiftArray(int[] array, int K) {
+    public static int[] shiftArray(int[] array, int k) {
 
         int[] shiftedArray = new int[array.length];
 
         for (int i = 0; i < array.length; i++)
-            shiftedArray[(i + K) % array.length] = array[i];
+            shiftedArray[(i + k) % array.length] = array[i];
 
         return shiftedArray;
 
