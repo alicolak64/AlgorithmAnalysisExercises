@@ -17,9 +17,9 @@ public class MissingPatient {
         // K = {  10K  ,  20K  ,  30K  ,  40K  ,  50K  ,  60K  ,  70K  ,  80K  ,  90K  ,  100K  ,  200K  ,  300K  ,  400K  ,  500K  ,  1000K  }
         // K = { 10000 , 20000 , 30000 , 40000 , 50000 , 60000 , 70000 , 80000 , 90000 , 100000 , 200000 , 300000 , 400000 , 500000 , 1000000 }
 
-        int missingPatient = fillArray(PATIENTS);
+        final int MISSING_PATIENT = fillArray(PATIENTS);
 
-        System.out.println("Missing Patient : " + missingPatient);
+        System.out.println("Missing Patient : " + MISSING_PATIENT);
 
         long startTime = getTime();
         int foundedMissingPatient = getMissingPatient(PATIENTS, 0, PATIENTS.length - 1);
@@ -33,7 +33,7 @@ public class MissingPatient {
 
     // Fills an array of length N with numbers other than the randomly determined number in this range from 1 to N+1.
     // It then converts the sorted array to the unsorted array by swapping the randomly determined number
-    public static int fillArray(int[] array) {
+    private static int fillArray(int[] array) {
 
         Random random = new Random();
         int randomNumber = random.nextInt(array.length) + 1;
@@ -57,10 +57,10 @@ public class MissingPatient {
     }
 
     // print array method
-    public static void printArray(int[] array) {
+    private static void printArray(int[] array) {
 
-        for (int j : array)
-            System.out.print(j + " ");
+        for (int element : array)
+            System.out.print(element + " ");
 
         System.out.println();
 
