@@ -23,12 +23,12 @@ public class HungarianFolkDance {
         System.out.print("Array size = " + (N / 1000) + "K" + " , ");
         System.out.println("Time : " + getTimeDifference(startTime, endTime) + "ms");
 
-        printArray(ARRAY);
-
+        System.out.println("Is Sorted : " + isSorted(ARRAY));
+        
     }
 
     // Fills the array with random numbers that can be equal to the maximum array length
-    public static void fillArray(int[] array) {
+    private static void fillArray(int[] array) {
 
         Random random = new Random();
 
@@ -38,12 +38,22 @@ public class HungarianFolkDance {
     }
 
     // print array method
-    public static void printArray(int[] array) {
+    private static void printArray(int[] array) {
 
-        for (int j : array)
-            System.out.print(j + " ");
+        for (int element : array)
+            System.out.print(element + " ");
 
         System.out.println();
+
+    }
+
+    private static boolean isSorted(int[] array) {
+
+        for (int i = 0; i < array.length - 1; i++)
+            if (array[i] > array[i + 1])
+                return false;
+
+        return true;
 
     }
 
@@ -59,14 +69,14 @@ public class HungarianFolkDance {
 
 
     // Quick Sort Method
-    public static void quickSort(int[] array, int left, int right) {
+    public static void quickSort(int[] array, int low, int high) {
 
-        if (left < right) {
+        if (low < high) {
 
-            int pivot = partition(array, left, right);
+            int pivot = partition(array, low, high);
 
-            quickSort(array, left, pivot - 1);
-            quickSort(array, pivot + 1, right);
+            quickSort(array, low, pivot - 1);
+            quickSort(array, pivot + 1, high);
 
         }
 
