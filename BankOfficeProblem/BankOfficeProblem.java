@@ -20,19 +20,21 @@ public class BankOfficeProblem {
 
 
         insertionSort(ARRAY);
-        int[] shiftedArray = shiftArray(ARRAY, K);
+        int[] SHIFTED_ARRAY = shiftArray(ARRAY, K);
 
         long startTime = getTime();
-        insertionSort(shiftedArray);
+        insertionSort(SHIFTED_ARRAY);
         long endTime = getTime();
 
         System.out.print("K  =  " + K + " , ");
         System.out.println("Time : " + getTimeDifference(startTime, endTime) + "ms");
 
+        System.out.println("Is Sorted : " + isSorted(SHIFTED_ARRAY));
+
     }
 
     // Fills the array with random numbers that can be equal to the maximum array length
-    public static void fillArray(int[] array) {
+    private static void fillArray (int[] array) {
 
         Random random = new Random();
 
@@ -42,12 +44,22 @@ public class BankOfficeProblem {
     }
 
     // print array method
-    public static void printArray(int[] array) {
+    private static void printArray (int[] array) {
 
-        for (int j : array)
-            System.out.print(j + " ");
+        for (int element : array)
+            System.out.print(element + " ");
 
         System.out.println();
+
+    }
+
+    private static boolean isSorted(int[] array) {
+
+        for (int i = 0; i < array.length - 1; i++)
+            if (array[i] > array[i + 1])
+                return false;
+
+        return true;
 
     }
 
@@ -63,12 +75,12 @@ public class BankOfficeProblem {
 
 
     // K is the shift value to the right
-    public static int[] shiftArray(int[] array, int k) {
+    private static int[] shiftArray(int[] array, int shiftedValue) {
 
         int[] shiftedArray = new int[array.length];
 
         for (int i = 0; i < array.length; i++)
-            shiftedArray[(i + k) % array.length] = array[i];
+            shiftedArray[(i + shiftedValue) % array.length] = array[i];
 
         return shiftedArray;
 
